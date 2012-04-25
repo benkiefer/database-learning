@@ -15,7 +15,7 @@ import java.sql.ResultSet
 import org.junit.After
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = ["classpath:contexts/DataAccessContext.xml"])
+@ContextConfiguration(locations = ["classpath:contexts/JdbcContext.xml"])
 class SpringJdbcLearningTest {
 
     @Autowired

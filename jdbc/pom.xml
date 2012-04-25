@@ -14,6 +14,7 @@
     <artifactId>database-learning-jdbc</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
@@ -27,22 +28,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.1.1.RELEASE</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.burgers</groupId>
+            <artifactId>database-learning-helper</artifactId>
         </dependency>
 
         <dependency>
@@ -67,6 +57,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
