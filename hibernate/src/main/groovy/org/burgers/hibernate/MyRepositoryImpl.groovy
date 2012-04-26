@@ -3,12 +3,11 @@ package org.burgers.hibernate
 import org.springframework.orm.hibernate3.HibernateTemplate
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
-import org.springframework.stereotype.Component
 import org.springframework.beans.factory.annotation.Autowired
 import org.hibernate.SessionFactory
 
 @Transactional
-@Component
+@Repository
 class MyRepositoryImpl implements MyRepository {
     SessionFactory sessionFactory
     HibernateTemplate hibernateTemplate
@@ -23,7 +22,6 @@ class MyRepositoryImpl implements MyRepository {
         hibernateTemplate.saveOrUpdate(myClass)
         hibernateTemplate.flush()
         sessionFactory.close()
-//        hibernateTemplate.
     }
 
     void delete(MyClass myClass) {
