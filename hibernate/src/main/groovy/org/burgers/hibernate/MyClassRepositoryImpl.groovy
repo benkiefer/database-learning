@@ -2,13 +2,11 @@ package org.burgers.hibernate
 
 import org.springframework.orm.hibernate3.HibernateTemplate
 import org.springframework.stereotype.Repository
-import org.springframework.transaction.annotation.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 import org.hibernate.SessionFactory
 
-@Transactional
 @Repository
-class MyRepositoryImpl implements MyRepository {
+class MyClassRepositoryImpl implements MyClassRepository {
     SessionFactory sessionFactory
     HibernateTemplate hibernateTemplate
 
@@ -28,13 +26,17 @@ class MyRepositoryImpl implements MyRepository {
         hibernateTemplate.delete(myClass)
     }
 
-    void findUserById(Long id) {
+    MyClass findById(Long id) {
         def myClass = new MyClass(id: id)
         hibernateTemplate.findByExample(myClass)[0]
     }
 
-    List<MyClass> findAllMyClass() {
+    List<MyClass> findAll() {
         hibernateTemplate.find("from MyClass")
+    }
+
+    void deleteAll() {
+        hibernateTemplate.bulkUpdate("delete from MyClass")
     }
 
 }

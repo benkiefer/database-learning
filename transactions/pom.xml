@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>database-learning-hibernate</artifactId>
+    <artifactId>database-learning-transactions</artifactId>
 
     <dependencies>
         <dependency>
@@ -25,35 +25,13 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.burgers</groupId>
-            <artifactId>database-learning-helper</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>3.6.5.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.12.1.GA</version>
+            <artifactId>database-learning-hibernate</artifactId>
         </dependency>
 
         <dependency>
@@ -72,5 +50,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

@@ -13,6 +13,7 @@
         <module>jdbc</module>
         <module>hibernate</module>
         <module>helper</module>
+        <module>transactions</module>
     </modules>
 
 
