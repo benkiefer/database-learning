@@ -6,16 +6,18 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+import org.springframework.transaction.annotation.Transactional
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = ["classpath:contexts/HibernateContext.xml"])
+@Transactional
 class MyClassRepositoryImplTest {
 
     @Autowired
     MyClassRepository myRepository
 
     @Before
-    void setUp(){
+    void setUp() {
         myRepository.deleteAll()
     }
 
@@ -45,7 +47,7 @@ class MyClassRepositoryImplTest {
     }
 
     @Test
-    void findById(){
+    void findById() {
         def bob = new MyClass(name: "bob")
         myRepository.save(bob)
         def id = myRepository.findAll()[0].id
