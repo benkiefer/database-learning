@@ -1,42 +1,53 @@
 package org.burgers.hibernate4
 
-import org.springframework.orm.hibernate3.HibernateTemplate
-import org.springframework.stereotype.Repository
-import org.springframework.beans.factory.annotation.Autowired
+import org.hibernate.Session
 import org.hibernate.SessionFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 
 @Repository
 class MyClassRepositoryImpl implements MyClassRepository {
-    SessionFactory sessionFactory
-    HibernateTemplate hibernateTemplate
-
     @Autowired
-    void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory
-        this.hibernateTemplate = new HibernateTemplate(sessionFactory)
-    }
+    SessionFactory sessionFactory
 
     void save(MyClass myClass) {
-        hibernateTemplate.saveOrUpdate(myClass)
-        hibernateTemplate.flush()
-        sessionFactory.close()
+        Session session = sessionFactory.openSession()
+        session.beginTransaction()
+        session.save(myClass)
+        session.getTransaction().commit()
+        session.close()
     }
 
     void delete(MyClass myClass) {
-        hibernateTemplate.delete(myClass)
+        Session session = sessionFactory.openSession()
+        session.beginTransaction()
+        session.delete(myClass)
+        session.getTransaction().commit()
+        session.close()
     }
 
     MyClass findById(Long id) {
-        def myClass = new MyClass(id: id)
-        hibernateTemplate.findByExample(myClass)[0]
+        def result
+        Session session = sessionFactory.openSession()
+        result = session.createQuery("from MyClass where id = $id").list()[0]
+        session.close()
+        result
     }
 
     List<MyClass> findAll() {
-        hibernateTemplate.find("from MyClass")
+        def result
+        Session session = sessionFactory.openSession()
+        result = session.createQuery("from MyClass").list()
+        session.close()
+        result
     }
 
     void deleteAll() {
-        hibernateTemplate.bulkUpdate("delete from MyClass")
+        Session session = sessionFactory.openSession()
+        session.beginTransaction()
+        session.createQuery("delete from MyClass").executeUpdate()
+        session.getTransaction().commit()
+        session.close()
     }
 
 }
