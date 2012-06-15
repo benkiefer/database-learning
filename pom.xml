@@ -12,6 +12,7 @@
         <module>parent</module>
         <module>jdbc</module>
         <module>hibernate-3</module>
+        <module>hibernate-4</module>
         <module>helper</module>
         <module>transactions</module>
     </modules>
