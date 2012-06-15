@@ -1,8 +1,8 @@
 package org.burgers.transactions
 
-import org.burgers.hibernate.MyClassRepository
+import org.burgers.hibernate3.MyClassRepository
 import org.springframework.stereotype.Component
-import org.burgers.hibernate.MyClass
+import org.burgers.hibernate3.MyClass
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 

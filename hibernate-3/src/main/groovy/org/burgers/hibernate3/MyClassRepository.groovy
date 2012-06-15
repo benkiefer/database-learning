@@ -1,4 +1,4 @@
-package org.burgers.hibernate
+package org.burgers.hibernate3
 
 public interface MyClassRepository {
     void save(MyClass myClass)

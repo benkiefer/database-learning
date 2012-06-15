@@ -1,4 +1,4 @@
-package org.burgers.hibernate
+package org.burgers.hibernate3
 
 import org.junit.Test
 import org.junit.runner.RunWith

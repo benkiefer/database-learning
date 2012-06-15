@@ -1,7 +1,7 @@
 package org.burgers.transactions
 
-import org.burgers.hibernate.MyClassRepository
-import org.burgers.hibernate.MyClass
+import org.burgers.hibernate3.MyClassRepository
+import org.burgers.hibernate3.MyClass
 
 class ExplodingRepository implements MyClassRepository{
     MyClassRepository repository

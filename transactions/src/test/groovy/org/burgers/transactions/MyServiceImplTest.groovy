@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 
-import org.burgers.hibernate.MyClassRepository
+import org.burgers.hibernate3.MyClassRepository
 import org.junit.Test
 
 import static junit.framework.Assert.fail
