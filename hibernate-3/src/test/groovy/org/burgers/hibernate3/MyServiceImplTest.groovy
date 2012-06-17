@@ -1,20 +1,20 @@
-package org.burgers.transactions
+package org.burgers.hibernate3
 
+import org.junit.After
 import org.junit.Before
-
-import org.junit.runner.RunWith
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import org.springframework.test.context.ContextConfiguration
-import org.springframework.beans.factory.annotation.Autowired
-
-import org.burgers.hibernate3.MyClassRepository
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+
+import javax.sql.DataSource
 
 import static junit.framework.Assert.fail
-import org.junit.After
 
 @RunWith(SpringJUnit4ClassRunner)
-@ContextConfiguration(locations=["classpath:contexts/TransactionContext.xml"])
+@ContextConfiguration(locations = ["classpath:contexts/HibernateContext.xml"])
 class MyServiceImplTest {
     @Autowired
     MyService myService
@@ -22,18 +22,26 @@ class MyServiceImplTest {
     @Autowired
     MyClassRepository myRepository
 
+    @Autowired
+    DataSource dataSource
+
+    JdbcTemplate jdbcTemplate
+
     @Before
     void setUp() {
-        myRepository.deleteAll()
-        assert myRepository.findAll().isEmpty()
+        jdbcTemplate = new JdbcTemplate(dataSource)
+        jdbcTemplate.execute("delete from tbtMyClass")
+        assert getMyClassCount() == 0
+    }
+
+    int getMyClassCount(){
+        jdbcTemplate.queryForInt("select count(*) from tbtMyClass")
     }
 
     @Test
     void doSomething_happy_path(){
         myService.doSomething()
-        def results = myRepository.findAll()
-        assert results.size() == 1
-        assert results[0].name == "MyName"
+        assert getMyClassCount() == 1
     }
 
     @Test
@@ -45,7 +53,7 @@ class MyServiceImplTest {
             myService.doSomething()
             fail("Should not get here")
         } catch (e){
-            assert myRepository.findAll().size() == 0
+            assert getMyClassCount() == 0
         }
     }
 
