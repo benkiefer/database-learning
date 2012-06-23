@@ -1,6 +1,0 @@
-language: groovy
-script: mvn -q clean verify
-
-branches:
-  only:
-    - master
