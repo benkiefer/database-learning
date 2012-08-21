@@ -1,16 +1,17 @@
 package org.burgers.hibernate4
 
-import org.junit.runner.RunWith
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import org.springframework.test.context.ContextConfiguration
-import org.springframework.beans.factory.annotation.Autowired
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+
+import javax.sql.DataSource
 
 import static junit.framework.Assert.fail
-import org.junit.After
-import javax.sql.DataSource
-import org.springframework.jdbc.core.JdbcTemplate
 
 @RunWith(SpringJUnit4ClassRunner)
 @ContextConfiguration(locations = ["classpath:contexts/HibernateContext.xml"])

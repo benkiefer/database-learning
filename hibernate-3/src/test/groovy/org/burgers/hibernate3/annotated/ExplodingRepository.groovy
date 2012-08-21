@@ -1,4 +1,4 @@
-package org.burgers.hibernate3
+package org.burgers.hibernate3.annotated
 
 class ExplodingRepository implements MyClassRepository {
     MyClassRepository repository

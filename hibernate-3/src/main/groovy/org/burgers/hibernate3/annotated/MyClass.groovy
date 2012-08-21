@@ -1,11 +1,6 @@
-package org.burgers.hibernate3
+package org.burgers.hibernate3.annotated
 
-import javax.persistence.Entity
-import javax.persistence.Table
-import javax.persistence.Id
-import javax.persistence.Column
-import javax.persistence.GenerationType
-import javax.persistence.GeneratedValue
+import javax.persistence.*
 
 @Entity
 @Table(name = "tbtMyClass")

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.burgers.hibernate3.xml">
+
+    <class name="Dog" table="tbtDog">
+
+        <id name="id" column="DogId">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="Name"/>
+
+    </class>
+
+</hibernate-mapping>

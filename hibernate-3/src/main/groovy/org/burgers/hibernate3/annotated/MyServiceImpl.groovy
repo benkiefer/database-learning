@@ -1,4 +1,4 @@
-package org.burgers.hibernate3
+package org.burgers.hibernate3.annotated
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component

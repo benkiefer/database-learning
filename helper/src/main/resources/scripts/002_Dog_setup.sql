@@ -1,0 +1,11 @@
+CREATE TABLE tbtDog (
+    DogId int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    OwnerId int NULL,
+    Name varchar(255) NOT NULL
+);
+
+ALTER TABLE tbtDog
+ADD CONSTRAINT FK_tbtDog_tbtOwner
+FOREIGN KEY (OwnerId) REFERENCES tbtOwner(OwnerId)
+ON UPDATE CASCADE
+ON DELETE CASCADE;

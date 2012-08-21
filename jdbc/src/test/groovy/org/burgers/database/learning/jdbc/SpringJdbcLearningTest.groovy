@@ -1,11 +1,11 @@
 package org.burgers.database.learning.jdbc
 
-import org.springframework.test.context.ContextConfiguration
+import org.junit.Test
+import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.JdbcTemplate
-import org.junit.Test
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import org.junit.runner.RunWith
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = ["classpath:contexts/JdbcContext.xml"])

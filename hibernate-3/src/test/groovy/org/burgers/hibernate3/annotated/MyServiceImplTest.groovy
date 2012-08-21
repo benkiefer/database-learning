@@ -1,4 +1,4 @@
-package org.burgers.hibernate3
+package org.burgers.hibernate3.annotated
 
 import org.junit.After
 import org.junit.Before
