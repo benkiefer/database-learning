@@ -41,8 +41,6 @@ class DogOwnerTest {
     }
 
     @Test
-    @Transactional
-    @Rollback(false)
     void ownerWithDog(){
         owner.dogs = [dog] as Set
         hibernateTemplate.save(owner)
