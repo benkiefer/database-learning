@@ -1,4 +1,3 @@
-language:groovy
 env:
   - DB_USERNAME=user DB_PASSWORD=password DB_URL=jdbc:mysql://127.0.0.1/test;
 
@@ -12,6 +11,8 @@ before_install:
     - mysql --user=root --password= -e "CREATE USER 'user'@'%' IDENTIFIED BY 'password';"
     - mysql --user=root --password= -e 'select User from mysql.user;'
     - mysql --user=root --password= -e "grant all on test.* to 'user'@'%' identified by 'password';"
+
+
 
 language: groovy
 
