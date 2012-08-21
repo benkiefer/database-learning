@@ -11,7 +11,11 @@ class ExplodingRepository implements MyClassRepository {
 
     void save(MyClass myClass) {
         repository.save(myClass)
-        if (shouldExplode) throw new RuntimeException("Test Kaboom!!!")
+        if (shouldExplode) {
+            def message = "Test Kaboom!!!"
+            println message
+            throw new RuntimeException(message)
+        }
     }
 
     void delete(MyClass myClass) {
