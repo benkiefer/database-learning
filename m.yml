@@ -1,0 +1,16 @@
+mappings:
+  h: helper
+  h3: hibernate-3
+  h4: hibernate-4
+  p: parent
+  j: jdbc
+
+maven:
+  phases:
+    - clean
+    - package
+    - test-compile
+    - jetty:run
+    - install
+    - deploy
+
