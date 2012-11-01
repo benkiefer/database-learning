@@ -23,15 +23,13 @@ class MyClassRepositoryImpl implements MyClassRepository {
     MyClass findById(Long id) {
         def result
         Session session = sessionFactory.currentSession
-        result = session.createQuery("from MyClass where id = $id").list()[0]
-        result
+        session.createQuery("from MyClass where id = $id").list()[0]
     }
 
     List<MyClass> findAll() {
         def result
         Session session = sessionFactory.currentSession
-        result = session.createQuery("from MyClass").list()
-        result
+        session.createQuery("from MyClass").list()
     }
 
     void deleteAll() {
