@@ -21,13 +21,21 @@ class MyClassRepositoryImpl implements MyClassRepository {
     }
 
     MyClass findById(Long id) {
-        def result
         Session session = sessionFactory.currentSession
-        session.createQuery("from MyClass where id = $id").list()[0]
+        def query = session.createQuery("from MyClass where id = $id")
+        query.list()[0]
+    }
+
+    MyClass findByName(String name) {
+        Session session = sessionFactory.currentSession
+        def query = session.createQuery("from MyClass where name = :name")
+        query.setParameter("name", name)
+        query.setCacheable(true)
+        query.setCacheRegion("myClassRegion")
+        query.list()[0]
     }
 
     List<MyClass> findAll() {
-        def result
         Session session = sessionFactory.currentSession
         session.createQuery("from MyClass").list()
     }

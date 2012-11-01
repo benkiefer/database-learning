@@ -21,6 +21,11 @@ class ExplodingRepository implements MyClassRepository {
         null
     }
 
+    @Override
+    MyClass findByName(String name) {
+        return null
+    }
+
     List<MyClass> findAll() {
         null
     }

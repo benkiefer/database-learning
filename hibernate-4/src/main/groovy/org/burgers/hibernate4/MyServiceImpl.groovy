@@ -15,4 +15,10 @@ class MyServiceImpl implements MyService {
         myRepository.save(new MyClass(name: "MyName"))
     }
 
+    @Transactional
+    MyClass findByName(String name) {
+        myRepository.findByName(name)
+    }
+
+
 }
