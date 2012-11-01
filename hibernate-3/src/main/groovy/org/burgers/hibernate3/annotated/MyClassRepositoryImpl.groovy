@@ -18,8 +18,6 @@ class MyClassRepositoryImpl implements MyClassRepository {
 
     void save(MyClass myClass) {
         hibernateTemplate.saveOrUpdate(myClass)
-        hibernateTemplate.flush()
-        sessionFactory.close()
     }
 
     void delete(MyClass myClass) {
